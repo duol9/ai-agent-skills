@@ -4,6 +4,8 @@ Use this template when dispatching a spec compliance reviewer subagent.
 
 **Purpose:** Verify implementer built what was requested (nothing more, nothing less)
 
+Do not evaluate code quality or style. Only verify specification compliance.
+
 ```
 Task tool (general-purpose):
   description: "Review spec compliance for Task N"
@@ -47,6 +49,7 @@ Task tool (general-purpose):
     - Did they build things that weren't requested?
     - Did they over-engineer or add unnecessary features?
     - Did they add "nice to haves" that weren't in spec?
+    - Reject implementations that add functionality not explicitly required by the specification.
 
     **Misunderstandings:**
     - Did they interpret requirements differently than intended?

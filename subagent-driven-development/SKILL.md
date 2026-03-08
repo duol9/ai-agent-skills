@@ -3,6 +3,69 @@ name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
 ---
 
+## Global Execution Rules
+
+The following rules override any conflicting instructions in this skill.
+
+### Git Safety
+
+- Do **not** commit, push, or merge changes unless the user explicitly requests it.
+- Never push directly to remote repositories.
+- Never modify the `main` or `master` branch without explicit user approval.
+- Present changes to the user before performing any repository operations.
+
+### Scope Control
+
+- Avoid large refactors unless explicitly requested.
+- Do not change unrelated files.
+- Prefer minimal, localized modifications.
+
+### Communication
+
+- Ask **only one clarification question at a time**.
+- If requirements are ambiguous, **do not guess**. Ask the user.
+- Never assume missing requirements.
+
+### Decision Safety
+
+Before implementing a change:
+
+- Consider **ripple effects** on:
+  - related code
+  - tests
+  - API contracts
+  - database schema
+  - external clients
+  - deployment
+
+If a change may affect any of these, **explain the impact before implementing**.
+
+### Spec Discipline
+
+- Implement **only what the plan specifies**.
+- Do **not add extra features** not present in the plan.
+- Do **not silently change behavior** unless required by the spec.
+
+### Implementation Conduct
+
+When executing tasks:
+
+1. Read the task specification carefully.
+2. If unclear → ask the user.
+3. Implement the minimal change needed.
+4. Run or update tests.
+5. Perform a self-review before continuing.
+
+### Review Integrity
+
+If a reviewer reports issues:
+
+- Fix the issue.
+- Request another review.
+- Repeat until the issue is resolved.
+
+Never ignore or bypass review findings.
+
 # Subagent-Driven Development
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
@@ -53,15 +116,15 @@ digraph process {
         "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [shape=box];
         "Code quality reviewer subagent approves?" [shape=diamond];
         "Implementer subagent fixes quality issues" [shape=box];
-        "Mark task complete in TodoWrite" [shape=box];
+        "Mark the task complete in the task checklist" [shape=box];
     }
 
-    "Read plan, extract all tasks with full text, note context, create TodoWrite" [shape=box];
+    "Read plan, extract all tasks with full text, note context, and create a task checklist" [shape=box];
     "More tasks remain?" [shape=diamond];
     "Dispatch final code reviewer subagent for entire implementation" [shape=box];
-    "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
+    "Finish the implementation branch using the repository's normal completion workflow" [shape=box style=filled fillcolor=lightgreen];
 
-    "Read plan, extract all tasks with full text, note context, create TodoWrite" -> "Dispatch implementer subagent (./implementer-prompt.md)";
+    "Read plan, extract all tasks with full text, note context, and create a task checklist" -> "Dispatch implementer subagent (./implementer-prompt.md)";
     "Dispatch implementer subagent (./implementer-prompt.md)" -> "Implementer subagent asks questions?";
     "Implementer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
     "Answer questions, provide context" -> "Dispatch implementer subagent (./implementer-prompt.md)";
@@ -75,18 +138,18 @@ digraph process {
     "Code quality reviewer subagent approves?" -> "Implementer subagent fixes quality issues" [label="no"];
     "Implementer subagent fixes quality issues" -> "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [label="re-review"];
     "Code quality reviewer subagent approves?" -> "Mark task complete in TodoWrite" [label="yes"];
-    "Mark task complete in TodoWrite" -> "More tasks remain?";
+    "Mark the task complete in the task checklist" -> "More tasks remain?";
     "More tasks remain?" -> "Dispatch implementer subagent (./implementer-prompt.md)" [label="yes"];
     "More tasks remain?" -> "Dispatch final code reviewer subagent for entire implementation" [label="no"];
-    "Dispatch final code reviewer subagent for entire implementation" -> "Use superpowers:finishing-a-development-branch";
+    "Dispatch final code reviewer subagent for entire implementation" -> "Finish the implementation branch using the repository's normal completion workflow";
 }
 ```
 
 ## Prompt Templates
 
-- `./implementer-prompt.md` - Dispatch implementer subagent
-- `./spec-reviewer-prompt.md` - Dispatch spec compliance reviewer subagent
-- `./code-quality-reviewer-prompt.md` - Dispatch code quality reviewer subagent
+ - ./implementer-prompt.md - Use for the implementation pass (implementer subagent if supported)
+ - ./spec-reviewer-prompt.md - Use for the specification compliance review pass
+ - ./code-quality-reviewer-prompt.md - Use for the code quality review pass
 
 ## Example Workflow
 
@@ -95,7 +158,7 @@ You: I'm using Subagent-Driven Development to execute this plan.
 
 [Read plan file once: docs/plans/feature-plan.md]
 [Extract all 5 tasks with full text and context]
-[Create TodoWrite with all tasks]
+[Create a task checklist with all tasks]
 
 Task 1: Hook installation script
 
@@ -229,14 +292,19 @@ Done!
 
 ## Integration
 
-**Required workflow skills:**
-- **superpowers:using-git-worktrees** - REQUIRED: Set up isolated workspace before starting
-- **superpowers:writing-plans** - Creates the plan this skill executes
-- **superpowers:requesting-code-review** - Code review template for reviewer subagents
-- **superpowers:finishing-a-development-branch** - Complete development after all tasks
+Recommended supporting workflows:
 
-**Subagents should use:**
-- **superpowers:test-driven-development** - Subagents follow TDD for each task
+- Use a planning workflow before this skill so the implementation plan is explicit and reviewable.
+- Use test-driven development whenever behavior changes or bugs are being fixed.
+- Use the repository's normal branch, review, and merge workflow after all tasks are complete.
 
-**Alternative workflow:**
-- **superpowers:executing-plans** - Use for parallel session instead of same-session execution
+Execution requirement:
+
+- This skill **must not be executed without an explicit implementation plan**.
+- If no plan exists, stop execution and request that a plan be created first.
+
+This skill assumes:
+
+- a written implementation plan exists
+- tasks can be executed sequentially in the current session
+- each task is reviewed before moving to the next one
