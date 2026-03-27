@@ -2,11 +2,12 @@
 description: Save a short technical learning to TIL in the Obsidian devlog vault
 ---
 
-Save a short technical learning to the TIL (Today I Learned) section of the Obsidian devlog vault.
+Save a short technical learning to the TIL section of the Obsidian devlog vault.
 
 ## Flow
 
-1. Based on the conversation context, generate a short TIL note. Keep it concise — this is a quick "오늘 이거 알았다" memo, not a deep analysis.
+1. Based on the conversation context, generate a short TIL note.
+   Keep it concise — this is a quick "오늘 이거 알았다" memo, not a deep analysis.
 
 2. Show the draft to the user and ask: "이 내용으로 저장할까?"
 
