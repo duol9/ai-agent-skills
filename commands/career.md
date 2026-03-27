@@ -10,16 +10,17 @@ Read all accumulated devlog records and update the Career portfolio summary.
 
 2. Analyze the records and extract:
    - Key technical achievements and decisions
-   - Problems solved and how
-   - Technologies used and why
+   - Problems solved and how (be specific: numbers, scale, context)
+   - Technologies used and why (trade-offs made)
+   - Business or service impact
    - Growth and insights gained
-   - Business/product impact where mentioned
 
 3. Show the user a summary of what you found and ask: "이 내용으로 portfolio-summary.md 를 업데이트할까?"
 
-4. On confirmation, update `~/Documents/devlog/Career/portfolio-summary.md` using the template below.
-   - Preserve existing content — append or refine, do not overwrite blindly.
-   - Focus on "무엇을 이루려 했고 무엇을 배웠는지" not just "무엇을 했는지".
+4. On confirmation, update `~/Documents/devlog/Career/portfolio-summary.md`:
+   - Preserve existing content — append or refine, do not overwrite blindly
+   - Focus on "what you were trying to achieve and what you learned", not just "what you did"
+   - Highlight technical judgment calls, CS knowledge applied, and business impact
 
 5. Run: `cd ~/Documents/devlog && git add . && git commit -m "career: update portfolio summary" && git push`
 
@@ -39,3 +40,4 @@ Read all accumulated devlog records and update the Career portfolio summary.
 
 ---
 ```
+
