@@ -1,7 +1,3 @@
----
-description: Save insight, troubleshooting, or decision to Obsidian devlog vault
----
-
 Save the current conversation's insight, troubleshooting, or decision to the Obsidian devlog vault.
 
 ## Flow
@@ -9,12 +5,19 @@ Save the current conversation's insight, troubleshooting, or decision to the Obs
 1. Ask the user: "어떤 프로젝트야?" (free text input)
 
 2. Ask the user to choose a note type:
-   - `troubleshooting` - 문제 해결 기록
-   - `feature-log` - 기능/작업 기록
-   - `ai-usage` - AI 활용 인사이트
-   - `decision` - 의사결정 기록
+   - `troubleshooting` - problem-solving record
+   - `feature-log` - feature or task record
+   - `ai-usage` - AI usage insights
+   - `decision` - decision-making record
 
-3. Based on the conversation context, generate a draft note using the matching template below. Fill in each section from the conversation — do not leave sections empty. If a section is not applicable, omit it.
+3. Based on the conversation context, generate a draft note using the matching template below.
+   Fill in each section from the conversation. Omit sections that are not applicable.
+
+   When writing the insight section, reflect these perspectives where relevant:
+   - Be specific about the problem (numbers, context, scale)
+   - Business/service impact: how did this work affect the service or team?
+   - What CS knowledge or technical judgment was applied (data structures, networking, DB, REST/gRPC, etc.)
+   - For legacy/refactoring work: what was broken before, and what changed after?
 
 4. Show the draft to the user and ask: "이 내용으로 저장할까?"
 
