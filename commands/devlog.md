@@ -48,7 +48,7 @@ Save the current conversation's insight, troubleshooting, or decision to the Obs
 ## 왜 이게 필요했나?
 > 어떤 문제를 풀려 했나? 누구의 불편함인가?
 
-## 내가 이루려 한 것
+## 목표
 
 ## 과정 & 선택들
 > 왜 이 기술/방식을 골랐나? 트레이드오프
