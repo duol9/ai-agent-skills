@@ -1,5 +1,26 @@
 Save the current conversation's insight, troubleshooting, or decision to the Obsidian devlog vault.
 
+## Why we write this
+
+This devlog captures technical depth and the trace of thought behind decisions.
+Not just "what was done" — but **why that choice was made, what was learned, and what would be done differently next time**.
+Portfolio and resume content is a byproduct of these records.
+
+Each note type has a different purpose:
+- `feature-log` / `troubleshooting` / `decision` → technical judgment, thought process, business context
+- `ai-usage` → how AI tools were used, what was learned, impressions from AI trends
+
+**For feature-log / troubleshooting / decision:**
+Show thought process, not action lists.
+If there are no real users yet (early dev stage), replace impact with intent:
+"I made this judgment to create X experience for users" — fill with intention and hypothesis.
+
+**For ai-usage:**
+Not a list of how AI was used — capture what was felt and learned while using it.
+Show how AI trends are being absorbed and applied.
+
+---
+
 ## Flow
 
 1. Ask the user: "어떤 프로젝트야?" (free text input)
@@ -13,11 +34,12 @@ Save the current conversation's insight, troubleshooting, or decision to the Obs
 3. Based on the conversation context, generate a draft note using the matching template below.
    Fill in each section from the conversation. Omit sections that are not applicable.
 
-   When writing the insight section, reflect these perspectives where relevant:
+   When writing, keep these in mind:
+   - **No action listing** — not "used INSERT IGNORE" but "why that choice and what tradeoffs were considered"
+   - **Thought process first** — initial hypothesis, failures, turning points, final decision
+   - **Intent over impact** — if no users yet, replace impact with "what experience I was trying to create"
    - Be specific about the problem (numbers, context, scale)
-   - Business/service impact: how did this work affect the service or team?
-   - What CS knowledge or technical judgment was applied (data structures, networking, DB, REST/gRPC, etc.)
-   - For legacy/refactoring work: what was broken before, and what changed after?
+   - Show what CS knowledge or technical judgment was applied
 
 4. Show the draft to the user and ask: "이 내용으로 저장할까?"
 
@@ -41,19 +63,24 @@ Save the current conversation's insight, troubleshooting, or decision to the Obs
 ## 해결
 
 ## 인사이트
+> Not a technical fact — how did this experience change my thinking?
+
+## 다음엔 어떻게
+> What would I do differently if I faced the same situation again?
 ```
 
 ### feature-log
 ```
 ## 왜 이게 필요했나?
-> 어떤 문제를 풀려 했나? 누구의 불편함인가?
+> What user/business problem was I solving? (No users yet? → what experience was I trying to create?)
 
-## 목표
+## 내가 이루려 한 것
 
 ## 과정 & 선택들
-> 왜 이 기술/방식을 골랐나? 트레이드오프
+> Why this technology/approach? Include first attempts, failures, turning points.
 
 ## 인사이트
+> Not a technical fact — how did this experience change my thinking?
 ```
 
 ### ai-usage
@@ -76,4 +103,5 @@ Save the current conversation's insight, troubleshooting, or decision to the Obs
 ## 왜 이걸 골랐나? (트레이드오프)
 
 ## 인사이트
+> Not a technical fact — how did this experience change my thinking?
 ```
