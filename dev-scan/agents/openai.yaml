@@ -1,0 +1,7 @@
+interface:
+  display_name: "Dev Scan"
+  short_description: "Scan community sentiment for dev topics."
+  default_prompt: "Use $dev-scan to summarize developer reactions to React 19 with source links."
+
+policy:
+  allow_implicit_invocation: true

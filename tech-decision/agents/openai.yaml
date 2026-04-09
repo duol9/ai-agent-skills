@@ -1,0 +1,7 @@
+interface:
+  display_name: "Tech Decision"
+  short_description: "Compare technical options with trade-offs."
+  default_prompt: "Use $tech-decision to compare Prisma vs TypeORM for an existing Node backend."
+
+policy:
+  allow_implicit_invocation: true

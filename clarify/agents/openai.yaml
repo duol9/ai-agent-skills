@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clarify"
+  short_description: "Turn vague requests into actionable specs."
+  default_prompt: "Use $clarify to turn 'add a login feature' into a concrete requirement."
+
+policy:
+  allow_implicit_invocation: true
