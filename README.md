@@ -242,17 +242,18 @@ ai-agent-skills/
 |-------|------|---------|----------|
 | **clarify** | [team-attention/plugins-for-claude-natives](https://github.com/team-attention/plugins-for-claude-natives) | MIT | 한국 개발 요구사항 형식 추가, 예시 현지화 |
 | **learning-opportunities** | [DrCatHicks/learning-opportunities](https://github.com/DrCatHicks/learning-opportunities) | MIT | 한국 개발 문맥 반영, 실무 사례 추가 |
-| **younghan** | [Kim Younghan - Inflearn 강의](https://www.inflearn.com/instructors/108) | 교육 철학 적용 | Spring/Java 강의 철학을 AI 학습 모드로 변환 |
+| **younghan** | [ryugi62 - 영한님을 동결조건해서 내 AI 코딩 강사로 만들어봤다](https://velog.io/@ryugi62/%EC%98%81%ED%95%9C%EB%8B%98%EC%9D%84-%EB%8F%99%EA%B2%B0%EA%B1%B4%EC%A1%B0%ED%95%B4%EC%84%9C-%EB%82%B4-AI-%EC%BD%94%EB%94%A9-%EA%B0%95%EC%82%AC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B4%A4%EB%8B%A4) | - | velog 글을 참고해서 Kim Younghan 강사님 강의 철학을 AI 학습 모드로 변환 |
+| **writing-plans** | [obra/superpowers - writing-plans](https://github.com/obra/superpowers/tree/main/skills/writing-plans) | MIT | 한국 개발 워크플로우 맞게 예시 추가, 문서 개선 |
+| **test-driven-development** | [obra/superpowers - test-driven-development](https://github.com/obra/superpowers/tree/main/skills/test-driven-development) | MIT | 한국 개발 문맥 반영, 실무 사례 및 안티패턴 추가 |
+| **subagent-driven-development** | [obra/superpowers - subagent-driven-development](https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development) | MIT | Claude/Codex 전용 재설계, 2단계 리뷰 프롬프트 추가 |
+| **claude-orchestrator** | [gaebalai/claude-code-orchestrator](https://github.com/gaebalai/claude-code-orchestrator) | MIT | Claude Code 설정 참고 및 최적화 |
 
 ### 기타 Skills
 
-다음 skills의 출처 정보는 현재 검토 중입니다:
-- writing-plans
-- test-driven-development
-- subagent-driven-development
-- tech-decision
-- dev-scan
-- pr_write
+다음 skills의 출처 정보:
+- tech-decision: 자체 설계
+- dev-scan: 자체 설계
+- pr_write: 자체 설계
 
 ---
 
