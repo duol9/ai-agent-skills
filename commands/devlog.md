@@ -43,6 +43,8 @@ Show how AI trends are being absorbed and applied.
    - Be specific about the problem (numbers, context, scale)
    - Show what CS knowledge or technical judgment was applied
 
+   **For `worklog` specifically — scope to today only**: if this session's conversation spans multiple calendar days (e.g. started yesterday, still open today), only summarize what happened **today** (the date this command is run right now). Do not fold in prior days' work — that should already be in that day's own worklog file. Use message/tool-call timestamps in the session to find where today's portion starts.
+
 4. Show the draft to the user and ask: "이 내용으로 저장할까?"
 
 5. On confirmation:
