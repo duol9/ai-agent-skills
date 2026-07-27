@@ -9,6 +9,7 @@ Portfolio and resume content is a byproduct of these records.
 Each note type has a different purpose:
 - `feature-log` / `troubleshooting` / `decision` → technical judgment, thought process, business context
 - `ai-usage` → how AI tools were used, what was learned, impressions from AI trends
+- `worklog` → structured daily work record (Situation/Goal-Gap/Issue/Next Step), one per project per day, feeds the project's worklog table view
 
 **For feature-log / troubleshooting / decision:**
 Show thought process, not action lists.
@@ -30,6 +31,7 @@ Show how AI trends are being absorbed and applied.
    - `feature-log` - feature or task record
    - `ai-usage` - AI usage insights
    - `decision` - decision-making record
+   - `worklog` - structured daily work log (Situation/Goal-Gap/Issue/Next Step)
 
 3. Based on the conversation context, generate a draft note using the matching template below.
    Fill in each section from the conversation. Omit sections that are not applicable.
@@ -44,9 +46,9 @@ Show how AI trends are being absorbed and applied.
 4. Show the draft to the user and ask: "이 내용으로 저장할까?"
 
 5. On confirmation:
-   - Determine a short, descriptive filename in kebab-case (e.g. `redis-ttl-expiry-bug`)
-   - Save to: `~/Documents/devlog/Projects/[project]/[type]/YYYY-MM-DD-[title].md`
-   - Run: `cd ~/Documents/devlog && git add . && git commit -m "devlog: [type] [title]" && git push`
+   - Determine a short, descriptive filename in kebab-case (e.g. `redis-ttl-expiry-bug`) — except `worklog`, which uses just the date (`YYYY-MM-DD.md`, one per project per day). If today's worklog file already exists, update it instead of creating a duplicate.
+   - Save to: `~/devlog/Projects/[project]/[type]/YYYY-MM-DD-[title].md` (`worklog`: `~/devlog/Projects/[project]/worklog/YYYY-MM-DD.md`)
+   - Run: `cd ~/devlog && git add . && git commit -m "devlog: [type] [title]" && git push`
 
 ---
 
@@ -105,3 +107,30 @@ Show how AI trends are being absorbed and applied.
 ## 인사이트
 > Not a technical fact — how did this experience change my thinking?
 ```
+
+### worklog
+```yaml
+---
+작업명: [어떤 작업이었는가 - 한 줄 제목]
+tags:
+  - [업무/학습/프로젝트 분류]
+중요도: [1-3]
+situation: |
+  - [당시 상황과 배경]
+goal_gap: |
+  - [해결해야 했던 문제]
+issue: |
+  - [고민했던 기술적 이슈와 판단]
+next_step: |
+  - [실제로 실행한 일과 다음 계획]
+---
+```
+
+Field guide:
+- **작업명** — 어떤 작업이었는가
+- **situation** — 당시 상황과 배경
+- **goal_gap** — 해결해야 했던 문제
+- **issue** — 고민했던 기술적 이슈와 판단
+- **next_step** — 실제로 실행한 일과 다음 계획
+- **tags** — 업무·학습·프로젝트 분류
+- **중요도** — 1(낮음)~3(높음)

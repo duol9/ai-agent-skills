@@ -19,8 +19,8 @@ Not just how something works — but why it works that way.
 
 3. On confirmation:
    - Determine a short, descriptive filename in kebab-case (e.g. `redis-ttl-reset-on-expire`)
-   - Save to: `~/Documents/devlog/TIL/YYYY-MM-DD-[title].md`
-   - Run: `cd ~/Documents/devlog && git add . && git commit -m "til: [title]" && git push`
+   - Save to: `~/devlog/TIL/YYYY-MM-DD-[title].md`
+   - Run: `cd ~/devlog && git add . && git commit -m "til: [title]" && git push`
 
 ---
 
