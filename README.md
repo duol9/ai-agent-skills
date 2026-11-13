@@ -354,3 +354,9 @@ A: `SKILL.md` 내용을 agent 설정에 복사하거나, 프롬프트로 직접 
 이 프로젝트는 실제 개발 프로젝트에서 지속적으로 사용하고 개선 중입니다.
 
 **라이선스**: MIT
+
+
+## 추가 보관한 스킬
+
+- **notion-publish**: 초안·메모를 Notion 페이지/데이터베이스에 게시하는 스킬입니다. `notion-publish/SKILL.md`의 환경 설정과 사용법을 확인하세요. 인증정보는 환경변수로 전달하며 저장소에 포함하지 않습니다.
+- **Claude younghan 변형**: 로컬 Claude 설치본을 `variants/claude/younghan/SKILL.md`에 보관했습니다. 기존 루트 버전은 그대로 유지합니다.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Notion Publish"
+  short_description: "Publish structured write-ups to Notion DBs"
+  default_prompt: "Use $notion-publish to publish this draft into a Notion database page."
